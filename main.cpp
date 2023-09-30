@@ -1,33 +1,34 @@
 #include "crtp.hpp"
 #include "manager.hpp"
+#include "pretty.hpp"
 #include <iostream>
 
 int main(void)
 {
-    BasicHandler done;
-    done.handle();
+    BasicHandler basicHandler;
+    basicHandler.handle();
 
-    AdvancedHandler run;
-    run.handle();
+    AdvancedHandler advancedHandler;
+    advancedHandler.handle();
 
-    HandlerInterface<AdvancedHandler> runStaticInterface;
-    runStaticInterface.handle();
+    HandlerInterface<AdvancedHandler> staticInterfaceWithAdvancedHandler;
+    staticInterfaceWithAdvancedHandler.handle();
 
-    std::cout << typeid(done).name() << std::endl;
-    std::cout << typeid(run).name() << std::endl;
-    std::cout << typeid(runStaticInterface).name() << std::endl;
+    std::cout << pretty::typeOf(basicHandler) << std::endl;
+    std::cout << pretty::typeOf(advancedHandler) << std::endl;
+    std::cout << pretty::typeOf(staticInterfaceWithAdvancedHandler)
+              << std::endl;
 
-    Manager manager1{done};
+    Manager manager1{basicHandler};
     manager1.handle();
 
-
-    Manager manager2{run};
+    Manager manager2{advancedHandler};
     manager2.handle();
 
-    Manager manager3{runStaticInterface};
+    Manager manager3{staticInterfaceWithAdvancedHandler};
     manager3.handle();
 
-    std::cout << typeid(manager1).name() << std::endl;
-    std::cout << typeid(manager2).name() << std::endl;
-    std::cout << typeid(manager3).name() << std::endl;
+    std::cout << pretty::typeOf(manager1) << std::endl;
+    std::cout << pretty::typeOf(manager2) << std::endl;
+    std::cout << pretty::typeOf(manager3) << std::endl;
 }

@@ -5,7 +5,7 @@ template <typename Derived>
 class HandlerInterface
 {
   public:
-    HandlerInterface(){std::cout << __PRETTY_FUNCTION__ << std::endl;};
+    HandlerInterface() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
     int handle()
     {
         std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -16,7 +16,7 @@ class HandlerInterface
 class BasicHandler : public HandlerInterface<BasicHandler>
 {
   public:
-  BasicHandler(){std::cout << __PRETTY_FUNCTION__ << std::endl;};
+    BasicHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
     int handle()
     {
         std::cout << __PRETTY_FUNCTION__ << std::endl;
@@ -27,7 +27,7 @@ class BasicHandler : public HandlerInterface<BasicHandler>
 class AdvancedHandler : public HandlerInterface<AdvancedHandler>
 {
   public:
-    AdvancedHandler(){std::cout << __PRETTY_FUNCTION__ << std::endl;};
+    AdvancedHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
     int handle()
     {
         std::cout << __PRETTY_FUNCTION__ << std::endl;

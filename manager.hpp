@@ -4,11 +4,11 @@
 template <typename T>
 struct Manager
 {
-    Manager(T& doner) : doner{doner} {std::cout << __PRETTY_FUNCTION__ << std::endl;}
-    void handle() { doner.handle(); }
+    Manager(HandlerInterface<T>& handler) : handler{handler}
+    {
+        std::cout << __PRETTY_FUNCTION__ << std::endl;
+    }
+    void handle() { handler.handle(); }
 
-    T& doner;
+    HandlerInterface<T>& handler;
 };
-
-template <class T>
-Manager(T) -> Manager<T>;
