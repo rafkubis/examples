@@ -2,6 +2,7 @@
 #include "manager.hpp"
 #include "pretty.hpp"
 #include <iostream>
+#include <memory>
 
 int main(void)
 {
@@ -11,12 +12,12 @@ int main(void)
     AdvancedHandler advancedHandler;
     advancedHandler.handle();
 
-    HandlerInterface<AdvancedHandler> staticInterfaceWithAdvancedHandler;
-    staticInterfaceWithAdvancedHandler.handle();
+    std::unique_ptr<AdvancedHandler> interfaceWithAdvancedHandler = std::make_unique<AdvancedHandler>();
+    interfaceWithAdvancedHandler->handle();
 
     std::cout << pretty::typeOf(basicHandler) << std::endl;
     std::cout << pretty::typeOf(advancedHandler) << std::endl;
-    std::cout << pretty::typeOf(staticInterfaceWithAdvancedHandler)
+    std::cout << pretty::typeOf(interfaceWithAdvancedHandler)
               << std::endl;
 
     Manager manager1{basicHandler};
@@ -25,7 +26,7 @@ int main(void)
     Manager manager2{advancedHandler};
     manager2.handle();
 
-    Manager manager3{staticInterfaceWithAdvancedHandler};
+    Manager manager3{*interfaceWithAdvancedHandler};
     manager3.handle();
 
     std::cout << pretty::typeOf(manager1) << std::endl;

@@ -24,11 +24,14 @@ add_executable(
     main.cpp
 )
 
-target_include_directories(main PUBLIC .)
+target_include_directories(main PUBLIC . ../helpers)
 
 add_executable(
     ut
     ut.cpp)
+
+target_include_directories(ut PUBLIC ../helpers)
+
 
 target_link_libraries(
         ut
