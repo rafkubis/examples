@@ -1,0 +1,5 @@
+add_test( ut.ShallFail /home/rafal/workspace/examples/examples/crtp/build/ut [==[--gtest_filter=ut.ShallFail]==] --gtest_also_run_disabled_tests)
+set_tests_properties( ut.ShallFail PROPERTIES WORKING_DIRECTORY /home/rafal/workspace/examples/examples/crtp/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+add_test( ut.ShallPass /home/rafal/workspace/examples/examples/crtp/build/ut [==[--gtest_filter=ut.ShallPass]==] --gtest_also_run_disabled_tests)
+set_tests_properties( ut.ShallPass PROPERTIES WORKING_DIRECTORY /home/rafal/workspace/examples/examples/crtp/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( ut_TESTS ut.ShallFail ut.ShallPass)
