@@ -1,5 +1,0 @@
-if(EXISTS "/home/rafal/workspace/examples/examples/concepts/build/ut[1]_tests.cmake")
-  include("/home/rafal/workspace/examples/examples/concepts/build/ut[1]_tests.cmake")
-else()
-  add_test(ut_NOT_BUILT ut_NOT_BUILT)
-endif()
