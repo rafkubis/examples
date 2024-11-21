@@ -17,7 +17,7 @@ FetchContent_MakeAvailable(googletest)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
-add_subdirectory(cpp/virtual_functions)
-add_subdirectory(cpp/templated)
-add_subdirectory(cpp/concepts)
-add_subdirectory(cpp/crtp)
+add_subdirectory(virtual_functions)
+add_subdirectory(templated)
+add_subdirectory(concepts)
+add_subdirectory(crtp)
