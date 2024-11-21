@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build
+      working-directory: ${{github.workspace}}/rust/trait_interface_static
       run: cargo build --verbose
     - name: Run tests
+      working-directory: ${{github.workspace}}/rust/trait_interface_static
       run: cargo test --verbose
