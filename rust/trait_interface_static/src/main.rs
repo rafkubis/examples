@@ -1,9 +1,11 @@
+use mockall::*;
 use std::any::type_name;
 
 fn type_of<T>(_: &T) -> &'static str {
     type_name::<T>()
 }
 
+#[automock]
 pub trait Handle {
     fn handle(&self);
 }
@@ -84,4 +86,32 @@ fn main() {
 
     dbg!(type_of(&static_basic_manager));
     dbg!(type_of(&static_advanced_manager));
+}
+
+#[test]
+fn dynamic_manager() {
+    let mut mock = MockHandle::new();
+    dbg!(type_of(&mock));
+    mock.expect_handle()
+        .times(1)
+        .returning(|| println!("MockHandle::handle"));
+
+    let manager = ManagerDynamic { handler: &mock };
+    dbg!(type_of(&manager));
+
+    manager.do_something();
+}
+
+#[test]
+fn static_manager() {
+    let mut mock = MockHandle::new();
+    dbg!(type_of(&mock));
+    mock.expect_handle()
+        .times(1)
+        .returning(|| println!("MockHandle::handle"));
+
+    let manager = ManagerStatic { handler: &mock };
+    dbg!(type_of(&manager));
+
+    manager.do_something();
 }
