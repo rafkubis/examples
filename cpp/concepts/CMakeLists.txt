@@ -3,19 +3,20 @@ add_executable(
     main.cpp
 )
 
-target_include_directories(concepts PUBLIC . ../helpers)
+target_link_libraries(
+    concepts
+    helpers
+)
 
 add_executable(
     concepts_ut
     ut.cpp)
 
-target_include_directories(concepts_ut PUBLIC ../helpers)
-
-
 target_link_libraries(
     concepts_ut
-        gtest_main
-        gmock_main
+    gtest_main
+    gmock_main
+    helpers
 )
 
 gtest_discover_tests(concepts_ut)
