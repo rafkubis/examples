@@ -5,15 +5,17 @@
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
+using namespace pretty;
+
 TEST(ut, ShallPass)
 {
     testing::StrictMock<HandlerMock> handlerMock;
-    std::cout << pretty::typeOf(handlerMock) << std::endl;
+    LOG(typeOf(handlerMock));
 
     Manager sut{handlerMock};
+    LOG(typeOf(sut));
 
     EXPECT_CALL(handlerMock, handle()).Times(1);
 
     sut.handle();
-    std::cout << pretty::typeOf(sut) << std::endl;
 }
