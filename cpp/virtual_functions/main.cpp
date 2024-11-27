@@ -1,8 +1,10 @@
 #include "handler.hpp"
+#include "log.hpp"
 #include "manager.hpp"
 #include "pretty.hpp"
-#include <iostream>
 #include <memory>
+
+using namespace pretty;
 
 int main(void)
 {
@@ -16,9 +18,9 @@ int main(void)
         std::make_unique<AdvancedHandler>();
     interfaceWithAdvancedHandler->handle();
 
-    std::cout << pretty::typeOf(basicHandler) << std::endl;
-    std::cout << pretty::typeOf(advancedHandler) << std::endl;
-    std::cout << pretty::typeOf(interfaceWithAdvancedHandler) << std::endl;
+    LOG(typeOf(basicHandler));
+    LOG(typeOf(advancedHandler));
+    LOG(typeOf(interfaceWithAdvancedHandler));
 
     Manager manager1{basicHandler};
     manager1.handle();
@@ -29,7 +31,7 @@ int main(void)
     Manager manager3{*interfaceWithAdvancedHandler};
     manager3.handle();
 
-    std::cout << pretty::typeOf(manager1) << std::endl;
-    std::cout << pretty::typeOf(manager2) << std::endl;
-    std::cout << pretty::typeOf(manager3) << std::endl;
+    LOG(typeOf(manager1));
+    LOG(typeOf(manager2));
+    LOG(typeOf(manager3));
 }

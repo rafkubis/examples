@@ -1,13 +1,13 @@
 #pragma once
-#include <iostream>
+#include "log.hpp"
 
 class BasicHandler
 {
   public:
-    BasicHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    BasicHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 1;
     };
 };
@@ -15,10 +15,10 @@ class BasicHandler
 class AdvancedHandler
 {
   public:
-    AdvancedHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    AdvancedHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 2;
     };
 };

@@ -1,10 +1,10 @@
 add_executable(
-    crtp_main  
+    crtp  
     main.cpp
 )
 
 target_link_libraries(
-    crtp_main
+    crtp
     helpers
 )
 

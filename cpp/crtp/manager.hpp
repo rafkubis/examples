@@ -6,7 +6,7 @@ struct Manager
 {
     Manager(HandlerInterface<T>& handler) : handler{handler}
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
     }
     void handle() { handler.handle(); }
 

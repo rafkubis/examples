@@ -1,21 +1,21 @@
 #pragma once
-#include <iostream>
+#include "log.hpp"
 
+// clang-format off
 template <typename T>
 concept HandlerInterface = requires(T v)
 {
-    {
-        v.handle()
-        } -> std::same_as<int>;
+    { v.handle() } -> std::same_as<int>;
 };
+// clang-format on
 
 class BasicHandler
 {
   public:
-    BasicHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    BasicHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 1;
     };
 };
@@ -23,10 +23,10 @@ class BasicHandler
 class AdvancedHandler
 {
   public:
-    AdvancedHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    AdvancedHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 2;
     };
 };

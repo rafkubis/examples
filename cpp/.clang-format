@@ -24,6 +24,7 @@ AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: false
 AlwaysBreakTemplateDeclarations: Yes
+#RequiresExpressionIndentation : true
 AttributeMacros:
   - __capability
 BinPackArguments: false

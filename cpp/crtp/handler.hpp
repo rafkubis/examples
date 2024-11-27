@@ -1,14 +1,14 @@
 #pragma once
-#include <iostream>
+#include "log.hpp"
 
 template <typename Derived>
 class HandlerInterface
 {
   public:
-    HandlerInterface() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    HandlerInterface() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return static_cast<Derived&>(*this).handle();
     };
 };
@@ -16,10 +16,10 @@ class HandlerInterface
 class BasicHandler : public HandlerInterface<BasicHandler>
 {
   public:
-    BasicHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    BasicHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 1;
     };
 };
@@ -27,10 +27,10 @@ class BasicHandler : public HandlerInterface<BasicHandler>
 class AdvancedHandler : public HandlerInterface<AdvancedHandler>
 {
   public:
-    AdvancedHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    AdvancedHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 2;
     };
 };

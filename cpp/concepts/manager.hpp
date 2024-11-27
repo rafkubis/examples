@@ -4,10 +4,7 @@
 template <HandlerInterface Handler>
 struct Manager
 {
-    Manager(Handler& handler) : handler{handler}
-    {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
-    }
+    Manager(Handler& handler) : handler{handler} { pretty::LOG(""); }
     void handle() { handler.handle(); }
 
     Handler& handler;

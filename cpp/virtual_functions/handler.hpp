@@ -1,5 +1,5 @@
 #pragma once
-#include <iostream>
+#include "log.hpp"
 
 class HandlerInterface
 {
@@ -10,10 +10,10 @@ class HandlerInterface
 class BasicHandler : public HandlerInterface
 {
   public:
-    BasicHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    BasicHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 1;
     };
 };
@@ -21,10 +21,10 @@ class BasicHandler : public HandlerInterface
 class AdvancedHandler : public HandlerInterface
 {
   public:
-    AdvancedHandler() { std::cout << __PRETTY_FUNCTION__ << std::endl; };
+    AdvancedHandler() { pretty::LOG(""); };
     int handle()
     {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
+        pretty::LOG("");
         return 2;
     };
 };

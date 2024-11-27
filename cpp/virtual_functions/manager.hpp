@@ -3,10 +3,7 @@
 
 struct Manager
 {
-    Manager(HandlerInterface& handler) : handler{handler}
-    {
-        std::cout << __PRETTY_FUNCTION__ << std::endl;
-    }
+    Manager(HandlerInterface& handler) : handler{handler} { pretty::LOG(""); }
     void handle() { handler.handle(); }
 
     HandlerInterface& handler;
